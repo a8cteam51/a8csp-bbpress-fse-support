@@ -1,5 +1,5 @@
 {
-  "name": "team51-plugin-scaffold",
+  "name": "a8csp-bbpress-fse-support",
   "version": "1.0.0",
   "description": "A scaffold for A8C Special Projects plugins",
   "author": {
@@ -10,9 +10,9 @@
   "keywords": [
     "wordpress"
   ],
-  "homepage": "https://wordpress.org/plugins/team51-plugin-scaffold",
-  "repository": "https://github.com/a8cteam51/team51-plugin-scaffold",
-  "bugs": "https://github.com/a8cteam51/team51-plugin-scaffold/issues",
+  "homepage": "https://wordpress.org/plugins/a8csp-bbpress-fse-support",
+  "repository": "https://github.com/a8cteam51/a8csp-bbpress-fse-support",
+  "bugs": "https://github.com/a8cteam51/a8csp-bbpress-fse-support/issues",
   "engines": {
     "node": ">=20.0",
     "npm": ">=10.0"
