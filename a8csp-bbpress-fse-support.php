@@ -39,13 +39,15 @@ if ( ! class_exists( 'bbPress' ) ) {
  * This filter replaces the default bbPress template output with a block-based structure
  * using template parts for the header and footer, and a main content area for bbPress content.
  *
+ * @SuppressWarnings("LongVariable")
+ *
  * @param string $template The path to the template file to include.
  *
  * @return string The (possibly modified) template path to include.
  */
 function a8csp_bbpress_fse_support_theme_support( string $template ): string {
 	// If BuddyPress is active or this is not a bbPress page, do not modify the template.
-	if ( is_buddypress() || ! is_bbpress() ) {
+	if ( ( function_exists( 'is_buddypress' ) && is_buddypress() ) || ! is_bbpress() ) {
 		return $template;
 	}
 
@@ -79,6 +81,9 @@ add_filter( 'bbp_template_include_theme_supports', 'a8csp_bbpress_fse_support_th
  *
  * This function checks the current bbPress context (user, forum, topic, reply, etc.)
  * and includes the appropriate template part using bbPress's template loader.
+ *
+ * @SuppressWarnings("CyclomaticComplexity")
+ * @SuppressWarnings("ExcessiveMethodLength")
  *
  * @return void
  */
@@ -125,9 +130,10 @@ function a8csp_bbpress_fse_support_template_include(): void {
 		// Check if the current user can view the forum.
 		if ( bbp_user_can_view_forum() ) {
 			bbp_get_template_part( 'content', 'single-forum' );
+		}
 
-			// Forum is private and user does not have permission.
-		} elseif ( bbp_is_forum_private() ) {
+		// Forum is private and user does not have permission.
+		elseif ( bbp_is_forum_private() ) {
 			bbp_get_template_part( 'feedback', 'no-access' );
 		}
 	}
@@ -152,9 +158,10 @@ function a8csp_bbpress_fse_support_template_include(): void {
 		// If the forum id is set, check forum caps else display normal topic form.
 		if ( bbp_user_can_view_forum() ) {
 			bbp_get_template_part( 'form', 'topic' );
+		}
 
-			// Forum is private and user does not have permission.
-		} elseif ( bbp_is_forum_private( 0, false ) ) {
+		// Forum is private and user does not have permission.
+		elseif ( bbp_is_forum_private( 0, false ) ) {
 			bbp_get_template_part( 'feedback', 'no-access' );
 		}
 	}
@@ -164,9 +171,10 @@ function a8csp_bbpress_fse_support_template_include(): void {
 		// Check if the current user can view the forum.
 		if ( bbp_user_can_view_forum() ) {
 			bbp_get_template_part( 'content', 'single-topic' );
+		}
 
-			// Forum is private and user does not have permission.
-		} elseif ( bbp_is_forum_private( 0, false ) ) {
+		// Forum is private and user does not have permission.
+		elseif ( bbp_is_forum_private( 0, false ) ) {
 			bbp_get_template_part( 'feedback', 'no-access' );
 		}
 	}
@@ -175,6 +183,7 @@ function a8csp_bbpress_fse_support_template_include(): void {
 	elseif ( bbp_is_topic_archive() ) {
 		bbp_get_template_part( 'content', 'archive-topic' );
 	}
+
 	// Reply move form.
 	elseif ( bbp_is_reply_move() ) {
 		bbp_get_template_part( 'form', 'reply-move' );
@@ -193,9 +202,10 @@ function a8csp_bbpress_fse_support_template_include(): void {
 		// Check if the current user can view the forum.
 		if ( bbp_user_can_view_forum() ) {
 			bbp_get_template_part( 'content', 'single-reply' );
+		}
 
-			// Forum is private and user does not have permission.
-		} elseif ( bbp_is_forum_private( 0, false ) ) {
+		// Forum is private and user does not have permission.
+		elseif ( bbp_is_forum_private( 0, false ) ) {
 			bbp_get_template_part( 'feedback', 'no-access' );
 		}
 	}
@@ -209,5 +219,6 @@ function a8csp_bbpress_fse_support_template_include(): void {
 	elseif ( bbp_is_topic_tag() ) {
 		bbp_get_template_part( 'content', 'archive-topic' );
 	}
+
 	//phpcs:enable Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace
 }
