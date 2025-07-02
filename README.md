@@ -1,58 +1,79 @@
-# a8csp-bbpress-fse-support
+# bbPress FSE Support
 
-**Contributors:** wpcomspecialprojects
-**Tags:**
-**Requires at least:** 6.5
-**Tested up to:** 6.5
-**Requires PHP:** 8.3
-**Stable tag:** 1.0.0
-**License:** GPLv3 or later
-**License URI:** http://www.gnu.org/licenses/gpl-3.0.html
+**Contributors:** wpcomspecialprojects  
+**Tags:** bbpress, full site editing, fse, block editor, forums, wordpress  
+**Requires at least:** 6.7  
+**Tested up to:** 6.7  
+**Requires PHP:** 8.3  
+**Stable tag:** 1.0.0  
+**License:** GPLv3 or later  
+**License URI:** <http://www.gnu.org/licenses/gpl-3.0.html>
 
-
+---
 
 ## Description
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo ligula, aliquam et sem luctus, placerat facilisis orci. Cras faucibus, odio ac aliquet scelerisque, nisi ligula dignissim nisi, sed tincidunt magna libero vitae dui. Sed varius lectus turpis, fringilla maximus libero posuere nec. Aenean volutpat pharetra sem, et cursus leo sodales quis.
+**bbPress FSE Support** brings Full Site Editing (FSE) compatibility to bbPress forums. This plugin enables bbPress content to be rendered using block-based templates, allowing you to fully integrate your forums with modern WordPress block themes. It automatically injects header, footer, and main content areas as block template parts, so your forums look and feel like a native part of your site.
+
+**Key Features:**
+
+- Seamless integration of bbPress with block themes and FSE
+- Uses block template parts for header, footer, and main content
+- Automatically selects the correct bbPress template part for each forum view
+- No configuration required—just activate and enjoy FSE support for your forums
+
+## Requirements
+
+- WordPress 6.7 or higher
+- PHP 8.3 or higher
+- bbPress plugin installed and activated
 
 ## Installation
 
-This plugin requires WooCommerce 7.4+ to run. If you're running a lower version, please update first. After you made sure that you're running a supported version of WooCommerce, you may install `Team51 Plugin Scaffold` either manually or through your site's plugins page.
+### Install from within WordPress
 
-### INSTALL FROM WITHIN WORDPRESS
+1. Go to the Plugins page in your WordPress dashboard and click `Add New`.
+2. Upload the plugin zip file or search for "bbPress FSE Support" if available.
+3. Click `Install Now` and then `Activate`.
 
-1. Visit the plugins page withing your dashboard and select `Add New`.
-1. Search for `Team51 Plugin Scaffold` and click the `Install Now` button.
-1. Activate the plugin from within your `Plugins` page.
+### Install manually
 
-### INSTALL MANUALLY
+1. Download the plugin zip file.
+2. Unzip and upload the `a8csp-bbpress-fse-support` folder to your `/wp-content/plugins/` directory.
+3. Activate the plugin from the Plugins menu in WordPress.
 
-1. Download the plugin from https://wordpress.org/plugins/ and unzip the archive.
-1. Upload the `a8csp-bbpress-fse-support` folder to the `/wp-content/plugins/` directory.
-1. Activate the plugin through the `Plugins` menu in WordPress.
+## Usage
 
-### AFTER ACTIVATION
-
-If the minimum required version of WooCommerce is present, you will find a section present in the `Advanced` tab of the WooCommerce `Settings` page. Aliquam dolor sem, convallis malesuada neque sit amet, dictum mattis velit. Vestibulum at pharetra metus. Suspendisse rhoncus libero nisi, sed rhoncus tortor aliquam pretium.
+No setup is required. Once activated, your bbPress forums will automatically use block-based templates if your theme supports Full Site Editing. All forum, topic, and reply pages will be rendered using the appropriate block template parts.
 
 ## Frequently Asked Questions
 
-### How can I get help if I'm stuck?
+### Does this plugin work with any theme?
 
-Quisque volutpat tortor id varius pulvinar. Vivamus porttitor, mi non auctor pellentesque, leo purus interdum libero, at aliquam justo lectus sed ligula.
+This plugin is designed for use with block themes that support Full Site Editing. It may not have any effect on classic (PHP template) themes.
 
-### I have a question that is not listed here
+### Do I need to configure anything?
 
-Duis efficitur, sapien ac scelerisque placerat, elit justo tempor nisl, ut feugiat magna orci quis odio.
+No configuration is needed. The plugin works automatically once activated.
+
+### Can I customize the forum layout?
+
+You can customize your site's header, footer, and other template parts using the Site Editor. bbPress content will appear within the main content area.
+
+### Is this plugin compatible with BuddyPress?
+
+If BuddyPress is active, the plugin will not override BuddyPress templates.
 
 ## Screenshots
 
-### 1. Example screenshot
-
-[missing image]
+1. Example: bbPress forum rendered inside a block theme (screenshot coming soon)
 
 ## Changelog
 
-### 1.0.0 (FIRST RELEASE DATE)
+### 1.0.0
 
-* First official release.
+* First official release: Adds FSE support for bbPress forums.
+
+---
+
+For support or to contribute, visit [WordPress.com Special Projects](https://specialprojects.automattic.com)

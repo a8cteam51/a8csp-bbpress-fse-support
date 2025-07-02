@@ -18,7 +18,6 @@
 			<property name="prefixes" type="array">
 				<element value="a8csp_"/>
 				<element value="a8csp_bbpress_fse_support_"/>
-				<element value="A8C\SpecialProjects\a8csp-bbpress-fse-support"/>
 			</property>
 		</properties>
 	</rule>
