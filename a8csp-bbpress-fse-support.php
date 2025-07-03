@@ -28,10 +28,20 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// If bbPress is not installed, exit early to prevent errors.
-if ( ! class_exists( 'bbPress' ) ) {
-	return;
+/**
+ * Initialize the bbPress FSE support.
+ *
+ * @return void
+ */
+function a8csp_bbpress_fse_support_init(): void {
+	// If bbPress is not installed, exit early to prevent errors.
+	if ( ! function_exists( 'is_bbpress' ) ) {
+		return;
+	}
+
+	add_filter( 'bbp_template_include_theme_supports', 'a8csp_bbpress_fse_support_theme_support' );
 }
+add_action( 'init', 'a8csp_bbpress_fse_support_init' );
 
 /**
  * Add bbPress theme support for Full Site Editing (FSE).
@@ -59,7 +69,7 @@ function a8csp_bbpress_fse_support_theme_support( string $template ): string {
 
 	<!-- wp:group {"tagName":"main","align":"full","layout":{"type":"constrained"}} -->
 	<main class="wp-block-group alignfull">
-		<?php bbpress_fse_template_include(); // Output the appropriate bbPress template part. ?>
+		<?php a8csp_bbpress_fse_support_template_include(); // Output the appropriate bbPress template part. ?>
 	</main>
 	<!-- /wp:group -->
 
@@ -73,8 +83,6 @@ function a8csp_bbpress_fse_support_theme_support( string $template ): string {
 
 	return $template;
 }
-add_filter( 'bbp_template_include_theme_supports', 'a8csp_bbpress_fse_support_theme_support' );
-
 
 /**
  * Output the correct bbPress template part based on the current view.
@@ -92,7 +100,6 @@ function a8csp_bbpress_fse_support_template_include(): void {
 	if ( ! is_bbpress() ) {
 		return;
 	}
-
 	//phpcs:disable Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace
 
 	// Editing a user or Viewing a user profile page.
